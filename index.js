@@ -7,7 +7,7 @@ import morgan from "morgan";
 import rateLimit from "express-rate-limit";
 import "dotenv/config";
 import taskRoutes from "./src/routes/tasks.js";
-import "./src/db.js/";
+import "./src/db.js";
 
 //ES modules equivalent of __dirname
 const __filename = fileURLToPath(import.meta.url);
