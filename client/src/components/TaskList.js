@@ -1,8 +1,10 @@
+const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 const TaskList = ({ tasks, updateTasks }) => {
   const clickDeleteTask = (event, task) => {
     event.preventDefault();
 
-    fetch(`/api/tasks/delete/${task._id}`, {
+    fetch(`${API_BASE}/api/tasks/delete/${task._id}`, {
       method: "delete",
     })
       .then((res) => res.json())
@@ -10,7 +12,7 @@ const TaskList = ({ tasks, updateTasks }) => {
   };
 
   const toggleDone = (task) => {
-    fetch(`/api/tasks/update/${task._id}`, {
+    fetch(`${API_BASE}/api/tasks/update/${task._id}`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ done: !task.done }),
