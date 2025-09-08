@@ -26,7 +26,10 @@ app.use(
 //CORS configuration
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://simple-mern-frontend2.onrender.com",
+    ],
     credentials: true,
   })
 );
