@@ -46,7 +46,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
 //test route
-app.get("/api/test", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "Backend is working!" });
 });
 
