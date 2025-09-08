@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import './App.css';
+import React, { useState, useEffect, useCallback } from "react";
+import "./App.css";
 
-import TasksList from './components/TaskList';
+import TasksList from "./components/TaskList.js";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
-  const [newTaskTitle, setNewTaskTitle] = useState('');
+  const [newTaskTitle, setNewTaskTitle] = useState("");
 
   const getTasks = useCallback(() => {
-    fetch('/api/tasks')
-      .then(res => res.json())
+    fetch("/api/tasks")
+      .then((res) => res.json())
       .then(setTasks);
   });
 
@@ -17,15 +17,15 @@ const App = () => {
     getTasks();
   }, []);
 
-  const clickAddTask = event => {
+  const clickAddTask = (event) => {
     event.preventDefault();
 
-    fetch('/api/tasks/add', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
+    fetch("/api/tasks/add", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: newTaskTitle }),
     }).then(() => {
-      setNewTaskTitle('');
+      setNewTaskTitle("");
       getTasks();
     });
   };
@@ -42,7 +42,7 @@ const App = () => {
           size="30"
           placeholder="New Task"
           value={newTaskTitle}
-          onChange={event => setNewTaskTitle(event.target.value)}
+          onChange={(event) => setNewTaskTitle(event.target.value)}
         />
         <input className="btn-primary" type="submit" value="Add" />
       </form>
