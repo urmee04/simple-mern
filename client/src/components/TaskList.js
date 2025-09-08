@@ -1,37 +1,38 @@
-import React from 'react';
-
 const TaskList = ({ tasks, updateTasks }) => {
   const clickDeleteTask = (event, task) => {
     event.preventDefault();
 
     fetch(`/api/tasks/delete/${task._id}`, {
-      method: 'delete',
+      method: "delete",
     })
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(() => updateTasks());
   };
 
-  const toggleDone = task => {
+  const toggleDone = (task) => {
     fetch(`/api/tasks/update/${task._id}`, {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
+      method: "post",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ done: !task.done }),
     }).then(() => updateTasks());
   };
 
+  // Add validation to ensure tasks is always an array
+  const safeTasks = Array.isArray(tasks) ? tasks : [];
+
   return (
     <ul className="tasks">
-      {tasks.map(task => (
+      {safeTasks.map((task) => (
         <li key={task._id}>
-          <label className={task.done ? 'done' : ''}>
+          <label className={task.done ? "done" : ""}>
             <input
               type="checkbox"
-              checked={task.done}
+              checked={task.done || false}
               onChange={() => toggleDone(task)}
-            />{' '}
+            />{" "}
             {task.title}
             <svg
-              onClick={event => clickDeleteTask(event, task)}
+              onClick={(event) => clickDeleteTask(event, task)}
               className="delete-button"
               width="16"
               height="16"
@@ -42,6 +43,9 @@ const TaskList = ({ tasks, updateTasks }) => {
           </label>
         </li>
       ))}
+
+      {/* Show message when no tasks exist */}
+      {safeTasks.length === 0 && <li className="no-tasks">No tasks found</li>}
     </ul>
   );
 };
