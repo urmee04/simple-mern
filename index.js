@@ -54,12 +54,12 @@ app.get("/api/test", (req, res) => {
 app.use("/api/tasks", taskRoutes);
 
 //serve static files from React app
-app.use(express.static(path.join(__dirname, "..", "client/build")));
+// app.use(express.static(path.join(__dirname, "..", "client/build")));
 
 //The "catchall" handler for React routing
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "client/build/index.html"));
+// });
 
 //global error handling middleware
 app.use((err, req, res, next) => {
