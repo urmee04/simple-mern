@@ -39,8 +39,8 @@ By completing this lab, we will:
 
 ### Live URLs
 
-- <a href="https://simple-mern-frontend2.onrender.com" target="_blank" rel="noopener noreferrer">frontend static site</a>
-- <a href="https://backend-task-api-riih.onrender.com" target="_blank" rel="noopener noreferrer">backend web service</a>
+- [frontend static site](https://simple-mern-frontend2.onrender.com)
+- [backend web service](https://backend-task-api-riih.onrender.com)
 
 ---
 
