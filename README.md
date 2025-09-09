@@ -1,51 +1,92 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/14852491/64910580-cc163700-d70f-11e9-99ec-8c49095a8c3b.png" />
-  <br/>
-  the simplest MERN (MongoDB, Express, React and Node) setup
-</p>
+## Lab 17.2: Full-Stack Deployment
 
-## Why?
+### Overview
 
-While there are many MERN starters on the interwebs already, I've struggled to find a 'minimal viable' MERN app. Existing examples usually involve other libraries and tools such as Redux, React Router, Typescript, Docker etc. These are all great things, but add unnecessary complexity when you just want to start simple.
+This lab guides to deploy a MERN (MongoDB, Express.js, React, Node.js) stack application to a live production environment for the first time. We'll take a prototype application that has only run locally and deploy it to publicly accessible URLs using free-tier Platform-as-a-Service (PaaS) providers.
 
-This MERN starter, `simple-mern` aims to be the minimum you need to get started with the stack.
+---
 
-## Getting Started
+### Objectives
 
-### Development
+By completing this lab, we will:
 
-1. Install MongoDB and run on default port `27017`
-2. `npm install` in both root directory and `client` directory
-3. `npm start` in both root directory and `client` directory
-4. Head to [localhost:3000](http://localhost:3000) to see the 'My Tasks' app
+- Fork and configure a pre-built MERN starter application
+- Set up a cloud database using MongoDB Atlas
+- Deploy a backend Express/Node.js API as a Web Service on Render
+- Deploy a frontend React application as a Static Site on Render
+- Connect the frontend and backend to create a fully functional live application
 
-### Production
+---
 
-```bash
-npm install
-npm run build
-npm run start:prod
-```
+### Prerequisites
 
-The production app will be running at [localhost:5000](http://localhost:5000/).
+- A GitHub account
+- Basic familiarity with JavaScript and the MERN stack
+- Understanding of environment variables and configuration
 
-## Extend `simple-mern`
+---
 
-While this boilerplate was designed to be as minimal as possible, support for other tech could be added _in their own branches_.
+### Technologies Used
 
-### Current Extensions
+- **MongoDB Atlas:** Cloud database service
+- **Render:** Platform-as-a-Service for deployment
+- **Node.js:** Backend runtime environment
+- **Express.js:** Backend web framework
+- **React:** Frontend user interface library
+- **Git:** Version control system
 
-- [`with-axios`](https://github.com/jmsv/simple-mern/tree/with-axios): Replaces Axios with fetch - [@leonlafa](https://github.com/leonlafa)
-- [`with-react-router`](https://github.com/jmsv/simple-mern/tree/with-react-router): Adds React Router - [@leonlafa](https://github.com/leonlafa)
-- [`with-material-ui`](https://github.com/jmsv/simple-mern/tree/with-material-ui): Adds Material UI - [@leonlafa](https://github.com/leonlafa)
-- [`with-docker`](https://github.com/jmsv/simple-mern/tree/with-docker): Adds Docker & Docker Compose - [@alejandrotoga02](https://github.com/alejandrotoga02)
-- [`with-redux`](https://github.com/jmsv/simple-mern/tree/with-redux): Adds Redux for state management - [@rahulSinha-01](https://github.com/rahulSinha-01)
+---
 
-### Ideas for Future Extensions
+### Live URLs
 
-- Replace JavaScript with TypeScript
-- Multi-user setup with social auth (e.g. Google, Facebook etc. login using Passport)
-- [Redux](https://redux.js.org) or [MobX](https://mobx.js.org) global state management for tasks
-- Static site generator using [GatsbyJS](https://www.gatsbyjs.org/) or [Next.js](https://nextjs.org/)
+- [frontend static site](https://simple-mern-frontend2.onrender.com)
+- [backend web service](https://backend-task-api-riih.onrender.com)
 
-If you'd like to add support for any of the above or something else, please open an [issue](https://github.com/jmsv/simple-mern/issues) letting me know, and I'll create a new branch to base the PR against.
+---
+
+### Lab Steps
+
+**1. Repository Setup**
+
+- Fork the provided MERN [starter application](https://github.com/jmsv/simple-mern) from GitHub
+- Clone your forked repository to examine the code structure : `git clone https://github.com/jmsv/simple-mern.git`
+
+**2. Database Configuration**
+
+- Create a free [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) account
+- Set up a new cluster and database
+- Create a database user with appropriate permissions
+- Obtain the MongoDB connection string
+
+**3. Backend Configuration**
+
+- Configure environment variables for the backend
+- Update database connection settings
+- Test the backend locally with the cloud database
+
+**4. Frontend Configuration**
+
+- Update API endpoint URLs to point to the future backend deployment
+- Configure build settings for production
+
+**5. Deployment to Render**
+
+- Create a [Render](https://render.com) account
+- Deploy the backend as a [Web Service](https://dev.to/slacky300/deploying-your-mern-stack-application-on-render-a-step-by-step-guide-23nk)
+- Deploy the frontend as a [Static Site](https://dev.to/slacky300/deploying-your-mern-stack-application-on-render-a-step-by-step-guide-23nk)
+- Configure environment variables in both services
+
+**6. Testing and Verification**
+
+- Test the live application functionality
+- Verify frontend-backend communication
+- Troubleshoot any deployment issues
+
+---
+
+### Expected Outcome
+
+- A live, publicly accessible MERN stack application
+- A cloud-hosted MongoDB database
+- Understanding of the production deployment process
+- Experience with PaaS providers and their configuration
